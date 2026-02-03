@@ -1,0 +1,40 @@
+<div class="valentine-container">
+  <div class="card">
+    <div class="hearts">
+      <span class="heart">💖</span>
+      <span class="heart">💕</span>
+      <span class="heart">💗</span>
+    </div>
+    
+    <h1 class="question">Will you be my valentine Katthe?</h1>
+    
+    <div *ngIf="noClickCount > 0 && noClickCount < 5 && !response" class="retry-message">
+      <p>{{ getNoMessage() }}</p>
+    </div>
+    
+    <div *ngIf="noClickCount >= 5 && !response" class="final-message">
+      <p>He really loves you and you better say yes 💕</p>
+    </div>
+    
+    <div *ngIf="showButtons" class="buttons-container">
+      <button class="btn btn-yes" (click)="handleYes()">
+        Yes! 💝
+      </button>
+      <button 
+        class="btn btn-no" 
+        [class.disabled]="noClickCount >= 5"
+        [disabled]="noClickCount >= 5"
+        (click)="handleNo()"
+        (mouseenter)="moveNoButton()"
+        [style.position]="'relative'"
+        [style.left]="noClickCount >= 5 ? '0px' : (noButtonOffset + 'px')"
+        [style.top]="noClickCount >= 5 ? '0px' : (noButtonOffsetY + 'px')">
+        No
+      </button>
+    </div>
+    
+    <div *ngIf="response" class="response-message">
+      <p *ngIf="response === 'yes'" class="success">💕 Yay! Happy Valentine's Day Babe! 💕</p>
+    </div>
+  </div>
+</div>
