@@ -1,4 +1,39 @@
 <div class="valentine-container">
+  <!-- Background music player (hidden) -->
+  <audio 
+    #backgroundMusic
+    [src]="'assets/music/Milana  Ninnindale  Puneeth Rajkumar  Pooja Gandhi  Manomurthy  Sonu Nigam  Jayanth Kaykini.mp3'"
+    loop
+    preload="auto"
+    class="background-music">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <!-- Animated background hearts -->
+  <div class="falling-hearts">
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+    <span class="heart-bg">💕</span>
+    <span class="heart-bg">💖</span>
+    <span class="heart-bg">💗</span>
+  </div>
+  
   <div class="card">
     <div class="hearts">
       <span class="heart">💖</span>
@@ -6,7 +41,7 @@
       <span class="heart">💗</span>
     </div>
     
-    <h1 class="question">Will you be my valentine Katthe?</h1>
+    <h1 class="question" [class.fade-out]="isQuestionFading">{{ currentQuestion }}</h1>
     
     <div *ngIf="noClickCount > 0 && noClickCount < 5 && !response" class="retry-message">
       <p>{{ getNoMessage() }}</p>
